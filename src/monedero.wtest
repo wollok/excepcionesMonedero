@@ -6,7 +6,8 @@ test "cuando saco 15 pesos me quedan 485 $" {
 }
 
 test "estado inicial del monedero tiene 500 $" {
-	assert.equals(monedero.plata(), 500)
+	// si bien equals es más representativo mostramos otra forma de decir qué tiene que pasar en el test
+	assert.that(monedero.plata() == 500)
 }
 
 test "cuando quiero sacar 1000 $ y no tengo tanta plata tira error" {
