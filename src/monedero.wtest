@@ -1,0 +1,34 @@
+import monedero.*
+
+test "cuando saco 15 pesos me quedan 485 $" {
+	monedero.sacar(15)
+	assert.equals(485, monedero.plata())
+}
+
+test "estado inicial del monedero tiene 500 $" {
+	assert.equals(monedero.plata(), 500)
+}
+
+test "cuando quiero sacar 1000 $ y no tengo tanta plata tira error" {
+	assert.throwsExceptionWithMessage("Debe sacar menos de 500", { => 
+		monedero.sacar(1000)
+	})
+}
+
+test "cuando quiero sacar un monto negativo tira error" {
+	assert.throwsExceptionLike(new UserException("La cantidad debe ser positiva"), { =>
+		monedero.sacar(-20)
+	})
+}
+
+test "cuando quiero sacar un valor alfabetico tira error" {
+	assert.throwsException({ => 
+		monedero.sacar("A")
+	})
+}
+
+test "cuando quiero poner un monto negativo tira error" {
+	assert.throwsExceptionWithMessage("La cantidad debe ser positiva", { => 
+		monedero.poner(-20)
+	})
+}
