@@ -5,7 +5,7 @@
 El ejemplo es muy sencillo: tenemos un monedero que tiene dos operaciones
 
 * le ponemos plata
-* sacamos plata de ella
+* sacamos plata de él
 
 ## Restricciones
 
