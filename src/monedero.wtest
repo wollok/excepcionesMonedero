@@ -11,13 +11,13 @@ test "estado inicial del monedero tiene 500 $" {
 }
 
 test "cuando quiero sacar 1000 $ y no tengo tanta plata tira error" {
-	assert.throwsExceptionWithMessage("Debe sacar menos de 500", { => 
+	assert.throwsExceptionWithMessage("Debe retirar menos de 500", { => 
 		monedero.sacar(1000)
 	})
 }
 
 test "cuando quiero sacar un monto negativo tira error" {
-	assert.throwsExceptionLike(new UserException("La cantidad debe ser positiva"), { =>
+	assert.throwsExceptionLike(new UserException("La cantidad a retirar debe ser positiva"), { =>
 		monedero.sacar(-20)
 	})
 }
@@ -29,7 +29,7 @@ test "cuando quiero sacar un valor alfabetico tira error" {
 }
 
 test "cuando quiero poner un monto negativo tira error" {
-	assert.throwsExceptionWithMessage("La cantidad debe ser positiva", { => 
+	assert.throwsExceptionWithMessage("La cantidad a retirar debe ser positiva", { => 
 		monedero.poner(-20)
 	})
 }

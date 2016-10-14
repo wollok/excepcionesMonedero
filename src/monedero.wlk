@@ -15,14 +15,14 @@ object monedero {
 	method sacar(cantidad) {
 		self.validarMonto(cantidad)
 		if (cantidad > plata) {
-			throw new UserException("Debe sacar menos de " + plata)
+			throw new UserException("Debe retirar menos de " + plata)
 		} 
 		plata -= cantidad
 	}
 
 	method validarMonto(cantidad) {
 		if (cantidad < 0) {
-			throw new UserException("La cantidad debe ser positiva")
+			throw new UserException("La cantidad a retirar debe ser positiva")
 		}
 	}
 }
